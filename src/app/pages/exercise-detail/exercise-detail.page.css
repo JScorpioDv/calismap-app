@@ -1,0 +1,170 @@
+.page-content {
+  padding: 20px 16px 40px;
+}
+
+/* ── Meta row ───────────────────────────────────────────────────────────────── */
+.meta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.category-tag {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--ion-color-primary);
+  text-transform: uppercase;
+}
+
+.muscle-chip {
+  --background: #2a2a2a;
+  --color: #888;
+  font-size: 0.72rem;
+  height: 22px;
+}
+
+/* ── Description ────────────────────────────────────────────────────────────── */
+.description {
+  font-size: 0.9rem;
+  color: var(--ion-color-medium);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* ── Current rating card ────────────────────────────────────────────────────── */
+.rating-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #2a2a2a;
+  border-left: 4px solid var(--ion-color-primary);
+  margin-bottom: 28px;
+  background: #1a1a1a;
+  gap: 4px;
+}
+
+.rating-label {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--ion-color-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.rating-value {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.rating-reps { font-size: 0.8rem; color: var(--ion-color-medium); }
+
+.rating-card-bronze   { border-left-color: #cd7f32; box-shadow: 0 0 18px var(--glow-bronze); }
+.rating-card-bronze .rating-value   { color: #cd7f32; }
+.rating-card-silver   { border-left-color: #c0c0c0; box-shadow: 0 0 18px var(--glow-silver); }
+.rating-card-silver .rating-value   { color: #c0c0c0; }
+.rating-card-gold     { border-left-color: #ffd600; box-shadow: 0 0 18px var(--glow-gold); }
+.rating-card-gold .rating-value     { color: #ffd600; }
+.rating-card-platinum { border-left-color: #00bcd4; box-shadow: 0 0 18px var(--glow-platinum); }
+.rating-card-platinum .rating-value { color: #00bcd4; }
+.rating-card-diamond  { border-left-color: #7c4dff; box-shadow: 0 0 18px var(--glow-diamond); }
+.rating-card-diamond .rating-value  { color: #7c4dff; }
+
+/* ── Section ────────────────────────────────────────────────────────────────── */
+.section { margin-bottom: 28px; }
+
+.section-title {
+  font-family: var(--font-heading);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  margin: 0 0 10px;
+}
+
+.section-desc {
+  font-size: 0.83rem;
+  color: var(--ion-color-medium);
+  margin: 0 0 12px;
+  line-height: 1.5;
+}
+
+/* ── Steps list ─────────────────────────────────────────────────────────────── */
+.steps-list {
+  padding-left: 20px;
+  margin: 0;
+  color: #888;
+}
+
+.steps-list li {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* ── Form ───────────────────────────────────────────────────────────────────── */
+.form-list {
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+/* ── Preview row ────────────────────────────────────────────────────────────── */
+.preview-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 4px;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+}
+
+.preview-label { color: var(--ion-color-medium); }
+
+.preview-rating {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.preview-hint { color: var(--ion-color-medium); font-size: 0.78rem; }
+
+/* ── Rating colors ──────────────────────────────────────────────────────────── */
+.rating-bronze   { color: #cd7f32; }
+.rating-silver   { color: #c0c0c0; }
+.rating-gold     { color: #ffd600; }
+.rating-platinum { color: #00bcd4; }
+.rating-diamond  { color: #7c4dff; }
+
+/* ── Buttons ────────────────────────────────────────────────────────────────── */
+ion-button.save-btn {
+  --border-radius: 6px;
+  height: 50px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ── Level badges ───────────────────────────────────────────────────────────── */
+ion-badge.level-beginner     { --background: #1b3a1f; --color: #69f0ae; border-radius: 3px; }
+ion-badge.level-intermediate { --background: #3a2800; --color: #ffcc02; border-radius: 3px; }
+ion-badge.level-advanced     { --background: #3a1500; --color: #ff8c00; border-radius: 3px; }
+ion-badge.level-expert       { --background: #3a0000; --color: #ff5300; border-radius: 3px; }

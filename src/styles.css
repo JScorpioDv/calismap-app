@@ -1,1 +1,96 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@400;500;600&display=swap');
+
+/* ── Color system ───────────────────────────────────────────────────────────── */
+:root {
+  --ion-background-color: #0f0f0f;
+  --ion-background-color-rgb: 15, 15, 15;
+
+  --ion-card-background: #1a1a1a;
+
+  --ion-toolbar-background: #0f0f0f;
+  --ion-toolbar-color: #ffffff;
+  --ion-toolbar-border-color: #2a2a2a;
+
+  --ion-text-color: #ffffff;
+  --ion-text-color-rgb: 255, 255, 255;
+
+  /* Primary: orange */
+  --ion-color-primary: #ff5300;
+  --ion-color-primary-rgb: 255, 83, 0;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #e04a00;
+  --ion-color-primary-tint: #ff6820;
+
+  /* Secondary: amber */
+  --ion-color-secondary: #ff8c00;
+  --ion-color-secondary-rgb: 255, 140, 0;
+  --ion-color-secondary-contrast: #000000;
+
+  --ion-color-success: #00c853;
+  --ion-color-success-rgb: 0, 200, 83;
+  --ion-color-success-contrast: #000;
+
+  --ion-color-warning: #ffd600;
+  --ion-color-warning-rgb: 255, 214, 0;
+  --ion-color-warning-contrast: #000;
+
+  --ion-color-danger: #ff1744;
+  --ion-color-danger-contrast: #fff;
+
+  --ion-color-medium: #666666;
+  --ion-color-medium-rgb: 102, 102, 102;
+  --ion-color-medium-contrast: #fff;
+
+  --ion-color-light: #2a2a2a;
+  --ion-color-light-rgb: 42, 42, 42;
+  --ion-color-light-contrast: #ffffff;
+
+  /* Fonts */
+  --font-heading: 'Barlow Condensed', sans-serif;
+  --font-body: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Glow palette */
+  --glow-primary:  rgba(255, 83,  0,   0.45);
+  --glow-amber:    rgba(255, 140, 0,   0.40);
+  --glow-green:    rgba(0,   200, 83,  0.40);
+  --glow-gold:     rgba(255, 214, 0,   0.40);
+  --glow-bronze:   rgba(205, 127, 50,  0.40);
+  --glow-silver:   rgba(192, 192, 192, 0.35);
+  --glow-platinum: rgba(0,   188, 212, 0.40);
+  --glow-diamond:  rgba(124, 77,  255, 0.40);
+}
+
+/* ── Base typography ────────────────────────────────────────────────────────── */
+* { font-family: var(--font-body); }
+
+h1, h2, h3, h4,
+ion-title,
+.section-title,
+.card-name,
+.node-name {
+  font-family: var(--font-heading);
+  letter-spacing: 0.03em;
+}
+
+ion-title {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ── Ionic dark overrides ───────────────────────────────────────────────────── */
+ion-item {
+  --background: #1a1a1a;
+  --color: #ffffff;
+  --border-color: #2a2a2a;
+}
+
+ion-list { background: transparent !important; }
+
+ion-content { --background: #0f0f0f; }
+
+/* ── Scrollbar ──────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 2px; }

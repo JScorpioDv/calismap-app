@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/roadmaps" />
+    </ion-buttons>
+    <ion-title>{{ exercise()?.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  @if (exercise(); as ex) {
+    <div class="page-content">
+
+      <!-- Meta -->
+      <div class="meta-row">
+        <ion-badge [class]="'level-' + ex.level.toLowerCase()">{{ ex.level }}</ion-badge>
+        <span class="category-tag">{{ ex.category }}</span>
+        @for (mg of ex.muscleGroups; track mg) {
+          <ion-chip class="muscle-chip">{{ mg }}</ion-chip>
+        }
+      </div>
+
+      <p class="description">{{ ex.description }}</p>
+
+      <!-- Current rating card -->
+      @if (currentRating(); as r) {
+        <div class="rating-card" [class]="'rating-card-' + r.toLowerCase()">
+          <span class="rating-label">Current rating</span>
+          <span class="rating-value">{{ r }}</span>
+          <span class="rating-reps">Best: {{ userExercise()?.maxRepetitions }} {{ repUnitLabel() }}</span>
+        </div>
+      }
+
+      <!-- Steps -->
+      <div class="section">
+        <h3 class="section-title">
+          <ion-icon name="list-outline" /> How to do it
+        </h3>
+        <ol class="steps-list">
+          @for (step of ex.steps; track $index) {
+            <li>{{ step }}</li>
+          }
+        </ol>
+      </div>
+
+      <!-- Exam -->
+      <div class="section">
+        <h3 class="section-title">
+          <ion-icon name="trophy-outline" /> Quick Exam
+        </h3>
+        <p class="section-desc">Do your maximum in one set. The app will assign your rating automatically based on your bodyweight ({{ bodyWeight() }} kg).</p>
+        <ion-button expand="block" fill="outline" color="warning" (click)="openExam()">
+          Start Exam
+        </ion-button>
+      </div>
+
+      <!-- Log session -->
+      <div class="section">
+        <h3 class="section-title">
+          <ion-icon name="barbell-outline" /> Log Session
+        </h3>
+
+        <ion-list lines="full" class="form-list">
+          <ion-item>
+            <ion-label position="stacked">{{ repUnitLabel() === 'seconds' ? 'Hold (seconds)' : 'Repetitions' }}</ion-label>
+            <ion-input
+              type="number"
+              [placeholder]="'e.g. ' + (repUnitLabel() === 'seconds' ? '30' : '10')"
+              [ngModel]="reps()"
+              (ngModelChange)="reps.set($event)"
+              [min]="0"
+            />
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Added weight (kg) — 0 for bodyweight</ion-label>
+            <ion-input
+              type="number"
+              placeholder="0"
+              [ngModel]="weight()"
+              (ngModelChange)="weight.set($event)"
+              [min]="0"
+            />
+          </ion-item>
+        </ion-list>
+
+        <!-- Live rating preview -->
+        @if (previewResult(); as preview) {
+          <div class="preview-row">
+            <span class="preview-label">Preview:</span>
+            <span class="preview-rating" [class]="'rating-' + preview.rating.toLowerCase()">{{ preview.rating }}</span>
+            @if (preview.nextRating && preview.repsToNext) {
+              <span class="preview-hint">
+                +{{ preview.repsToNext }} {{ repUnitLabel() }} → {{ preview.nextRating }}
+              </span>
+            }
+          </div>
+        }
+
+        <ion-button expand="block" class="save-btn" (click)="saveSession()">
+          <ion-icon slot="start" name="checkmark-circle" />
+          Save Session
+        </ion-button>
+      </div>
+
+    </div>
+  }
+</ion-content>

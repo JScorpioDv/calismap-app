@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>CalisMap</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Category filter -->
+  <div class="filter-bar">
+    @for (cat of categories(); track cat) {
+      <button
+        class="filter-chip"
+        [class.active]="activeFilter() === cat"
+        (click)="setFilter(cat)"
+      >
+        {{ cat }}
+      </button>
+    }
+  </div>
+
+  <div class="cards">
+    @for (card of filtered(); track card.roadmap.id) {
+      <a class="roadmap-card" [routerLink]="['/roadmaps', card.roadmap.id]">
+        <!-- Glow ring -->
+        <div class="card-glow" [class]="'glow-' + card.category.toLowerCase()"></div>
+
+        <div class="card-inner">
+          <div class="card-top">
+            <div>
+              <p class="card-category">{{ card.category }}</p>
+              <h2 class="card-name">{{ card.roadmap.name }}</h2>
+              <p class="card-goal">Goal: {{ card.targetExercise.name }}</p>
+            </div>
+            <ion-badge class="level-badge" [class]="'level-' + card.targetExercise.level.toLowerCase()">
+              {{ card.targetExercise.level }}
+            </ion-badge>
+          </div>
+
+          <p class="card-desc">{{ card.roadmap.description }}</p>
+
+          <div class="progress-row">
+            <span>{{ card.completedCount }} / {{ card.totalCount }} steps</span>
+            <span class="pct">{{ (progress(card) * 100) | number: '1.0-0' }}%</span>
+          </div>
+          <ion-progress-bar [value]="progress(card)" color="primary" />
+        </div>
+      </a>
+    }
+  </div>
+</ion-content>

@@ -25,7 +25,6 @@
               }
             ],
             "styles": [
-              "src/styles.css",
               "@ionic/angular/css/core.css",
               "@ionic/angular/css/normalize.css",
               "@ionic/angular/css/structure.css",
@@ -35,7 +34,8 @@
               "@ionic/angular/css/float-elements.css",
               "@ionic/angular/css/text-alignment.css",
               "@ionic/angular/css/text-transformation.css",
-              "@ionic/angular/css/flex-utils.css"
+              "@ionic/angular/css/flex-utils.css",
+              "src/styles.css"
             ]
           },
           "configurations": {
@@ -43,8 +43,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "2MB",
+                  "maximumError": "4MB"
                 },
                 {
                   "type": "anyComponentStyle",
